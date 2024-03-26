@@ -9,11 +9,11 @@ const ContactForm = ({ onAddContact }) => {
     name: Yup.string()
       .min(2, "Your name is Short!")
       .max(40, "Your name is Long!")
-      .required("Required"),
+      .required("Name Required"),
     number: Yup.string()
       .min(2, "Your number is Short!")
       .max(40, "Your number is Long!")
-      .required("Required"),
+      .required("Number Required"),
   });
 
   const initialValues = {
@@ -45,14 +45,14 @@ const ContactForm = ({ onAddContact }) => {
             Username
           </label>
           <Field type="text" name="name" id={nameFieldId} />
-          <ErrorMessage name="name" as="span" />
+          <ErrorMessage name="name" component="p" />
         </div>
         <div className={css.inputForm}>
           <label className={css.labelText} htmlFor={numberFieldId}>
             Number
           </label>
           <Field type="text" name="number" id={numberFieldId} />
-          <ErrorMessage name="number" as="span" />
+          <ErrorMessage name="number" component="p" />
         </div>
 
         <button className={css.btn} type="submit">
